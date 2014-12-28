@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OpenLife3DModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="OpenLife3DModelStoreContainer">
+    <EntitySet Name="user_accountsSet" EntityType="OpenLife3DModel.Store.user_accountsSet" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="user_accountsSet">
+    <Key>
+      <PropertyRef Name="PrincipalID" />
+    </Key>
+    <Property Name="PrincipalID" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="ScopeID" Type="nvarchar" Nullable="false" MaxLength="36" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Created" Type="smallint" Nullable="false" />
+    <Property Name="UserLevel" Type="smallint" Nullable="false" />
+    <Property Name="UserFlags" Type="smallint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="OpenLife3DModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="OpenLife3DModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="user_accountsSet" EntityType="OpenLife3DModel.user_accounts" />
+        </EntityContainer>
+        <EntityType Name="user_accounts">
+          <Key>
+            <PropertyRef Name="PrincipalID" />
+          </Key>
+          <Property Name="PrincipalID" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="36" />
+          <Property Name="ScopeID" Type="String" Nullable="false" MaxLength="36" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="64" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="64" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="64" />
+          <Property Name="Created" Type="Int16" Nullable="false" />
+          <Property Name="UserLevel" Type="Int16" Nullable="false" />
+          <Property Name="UserFlags" Type="Int16" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OpenLife3DModelStoreContainer" CdmEntityContainer="OpenLife3DModelContainer">
+    <EntitySetMapping Name="user_accountsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(OpenLife3DModel.user_accounts)">
+        <MappingFragment StoreEntitySet="user_accountsSet">
+          <ScalarProperty Name="PrincipalID" ColumnName="PrincipalID" />
+          <ScalarProperty Name="ScopeID" ColumnName="ScopeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+          <ScalarProperty Name="UserFlags" ColumnName="UserFlags" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
