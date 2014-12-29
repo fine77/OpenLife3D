@@ -26,5 +26,6 @@ namespace OpenLife3D
         }
     
         public virtual DbSet<user_accounts> user_accountsSet { get; set; }
+        public virtual DbSet<user_appearance> user_appearanceSet { get; set; }
     }
 }

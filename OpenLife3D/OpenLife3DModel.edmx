@@ -7,6 +7,7 @@
     <Schema Namespace="OpenLife3DModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="OpenLife3DModelStoreContainer">
     <EntitySet Name="user_accountsSet" EntityType="OpenLife3DModel.Store.user_accountsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="user_appearanceSet" EntityType="OpenLife3DModel.Store.user_appearanceSet" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="user_accountsSet">
     <Key>
@@ -22,12 +23,20 @@
     <Property Name="UserFlags" Type="smallint" Nullable="false" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
   </EntityType>
+  <EntityType Name="user_appearanceSet">
+    <Key>
+      <PropertyRef Name="PrincipalID" />
+    </Key>
+    <Property Name="PrincipalID" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="36" />
+    <Property Name="Appearance" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="OpenLife3DModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="OpenLife3DModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="user_accountsSet" EntityType="OpenLife3DModel.user_accounts" />
+          <EntitySet Name="user_appearanceSet" EntityType="OpenLife3DModel.user_appearance" />
         </EntityContainer>
         <EntityType Name="user_accounts">
           <Key>
@@ -42,6 +51,13 @@
           <Property Name="UserLevel" Type="Int16" Nullable="false" />
           <Property Name="UserFlags" Type="Int16" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="user_appearance">
+          <Key>
+            <PropertyRef Name="PrincipalID" />
+          </Key>
+          <Property Name="PrincipalID" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="36" />
+          <Property Name="Appearance" Type="String" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -61,6 +77,14 @@
           <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
           <ScalarProperty Name="UserFlags" ColumnName="UserFlags" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_appearanceSet">
+      <EntityTypeMapping TypeName="IsTypeOf(OpenLife3DModel.user_appearance)">
+        <MappingFragment StoreEntitySet="user_appearanceSet">
+          <ScalarProperty Name="PrincipalID" ColumnName="PrincipalID" />
+          <ScalarProperty Name="Appearance" ColumnName="Appearance" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -70,6 +70,9 @@
     <Compile Include="user_accounts.cs">
       <DependentUpon>OpenLife3DModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="user_appearance.cs">
+      <DependentUpon>OpenLife3DModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
